@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Indah Siti Khotimah — Electrical Engineer</title>
+<meta name="description" content="Portfolio of Indah Siti Khotimah, certified power installation technician and electrical engineering graduate.">
+<style>
+  :root{
+    --bg:#fdf4fb;
+    --bg-alt:#ffffff;
+    --border:#f2d6ea;
+    --text:#3d1234;
+    --muted:#7d4a70;
+    --accent:#c0269b;
+    --radius:12px;
+    --max:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    background:var(--bg); color:var(--text); line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+  section{padding:88px 0;border-bottom:1px solid var(--border)}
+  h2{font-size:1.75rem;margin-bottom:8px;letter-spacing:-.5px}
+  .lead{color:var(--muted);margin-bottom:40px;max-width:680px}
+
+  /* Nav */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(253,244,251,.88); /* Fixed: Changed from dark to light pink */
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .logo{font-weight:700;letter-spacing:.3px;color:var(--text);font-size:.98rem}
+  .nav ul{display:flex;gap:24px;list-style:none}
+  .nav a{color:var(--muted);font-size:.93rem}
+  .nav a:hover{color:var(--text);text-decoration:none}
+  .menu-btn{
+    display:none;background:none;border:1px solid var(--border);color:var(--text);
+    border-radius:8px;padding:8px 12px;cursor:pointer;font-size:1.1rem;line-height:1;
+  }
+  @media(max-width:860px){
+    .menu-btn{display:block}
+    .nav ul{
+      position:absolute;top:64px;left:0;right:0;
+      flex-direction:column;gap:0;display:none;
+      background:var(--bg-alt);border-bottom:1px solid var(--border);
+      padding:8px 24px;
+    }
+    .nav ul.open{display:flex}
+    .nav ul li{padding:12px 0;border-bottom:1px solid var(--border)}
+    .nav ul li:last-child{border-bottom:0}
+  }
+
+  /* Hero */
+  .hero{padding:120px 0 96px}
+  .eyebrow{
+    color:var(--accent);font-weight:600;font-size:.85rem;
+    letter-spacing:.15em;text-transform:uppercase;margin-bottom:16px;
+  }
+  .hero h1{font-size:clamp(2.1rem,5.5vw,3.2rem);line-height:1.15;letter-spacing:-1px;margin-bottom:20px}
+  .hero p{max-width:700px;color:var(--muted);font-size:1.05rem;margin-bottom:32px}
+  .btns{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{padding:12px 22px;border-radius:8px;font-weight:600;font-size:.95rem;border:1px solid transparent;transition:.2s}
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{filter:brightness(1.12);text-decoration:none}
+  .btn-ghost{border-color:#e9bfdd;color:var(--text);background:#fff}
+  .btn-ghost:hover{border-color:var(--accent);text-decoration:none}
+
+  /* Certified badge */
+  .cert-badge{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:.78rem;font-weight:600;color:var(--accent);
+    background:rgba(192,38,155,.09);
+    border:1px solid rgba(192,38,155,.25);
+    padding:5px 12px;border-radius:999px;
+    margin-bottom:20px;
+  }
+  .cert-badge svg{width:13px;height:13px;flex-shrink:0}
+
+  /* Project cards */
+  .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+  .card{
+    background:var(--bg-alt);border:1px solid var(--border);border-radius:var(--radius);
+    padding:24px;display:flex;flex-direction:column;
+    transition:transform .2s,border-color .2s,box-shadow .2s;
+  }
+  .card:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 8px 24px rgba(192,38,155,.08)}
+  .card h3{font-size:1.08rem;margin-bottom:10px;line-height:1.35}
+  .card .kicker{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;color:var(--accent);font-weight:600;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:.94rem;flex:1;margin-bottom:16px}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{
+    font-size:.75rem;padding:4px 10px;border-radius:999px;
+    background:rgba(192,38,155,.07);color:#a82189;
+    border:1px solid rgba(192,38,155,.2);
+  }
+
+  /* Skills */
+  .skills{display:grid;gap:28px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .skills h3{
+    font-size:.82rem;text-transform:uppercase;letter-spacing:.12em;
+    color:var(--accent);margin-bottom:12px;
+  }
+  .skills ul{list-style:none;display:flex;flex-direction:column;gap:8px;color:var(--muted);font-size:.92rem}
+
+  /* Experience / education entries */
+  .entry{padding-bottom:32px;margin-bottom:32px;border-bottom:1px solid var(--border)}
+  .entry:last-child{border-bottom:0;margin-bottom:0;padding-bottom:0}
+  .entry-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:baseline}
+  .entry h3{font-size:1.05rem;line-height:1.35}
+  .entry .meta{color:var(--muted);font-size:.9rem;margin-top:4px}
+  .entry .when{color:var(--accent);font-size:.83rem;white-space:nowrap;font-weight:600}
+  .entry ul{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:9px;color:var(--muted);font-size:.94rem}
+  .entry ul li{position:relative;padding-left:18px}
+  .entry ul li::before{content:"▸";position:absolute;left:0;color:var(--accent)}
+  .note{font-size:.86rem;color:var(--muted);margin-top:16px}
+
+  /* Certificate status + actions */
+  .cert-status{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;
+    color:#1e7a3c;background:rgba(30,122,60,.09);
+    border:1px solid rgba(30,122,60,.28);
+    padding:3px 9px;border-radius:999px;margin-bottom:12px;
+  }
+  .cert-status svg{width:11px;height:11px}
+  .cert-meta{font-size:.84rem;color:var(--muted);margin-top:4px}
+  .cert-meta strong{color:var(--text);font-weight:600}
+  .cert-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+  .cert-btn{
+    display:inline-flex;align-items:center;gap:7px;
+    font-size:.84rem;font-weight:600;padding:9px 14px;
+    border-radius:8px;border:1px solid #e9bfdd;background:#fff;
+    color:var(--text);transition:.2s;
+  }
+  .cert-btn:hover{border-color:var(--accent);color:var(--accent);text-decoration:none}
+  .cert-btn svg{width:14px;height:14px;flex-shrink:0}
+
+  /* Competency units */
+  .comp-toggle{
+    margin-top:20px;border:1px solid var(--border);border-radius:10px;
+    background:rgba(253,244,251,.6);
+  }
+  .comp-toggle summary{
+    cursor:pointer;padding:12px 16px;font-size:.86rem;font-weight:600;
+    color:var(--accent);list-style:none;display:flex;align-items:center;gap:8px;
+    user-select:none;
+  }
+  .comp-toggle summary::-webkit-details-marker{display:none}
+  .comp-toggle summary::before{
+    content:"▸";transition:transform .2s;display:inline-block;
+  }
+  .comp-toggle[open] summary::before{transform:rotate(90deg)}
+  .comp-toggle summary:hover{text-decoration:underline}
+  .comp-list{
+    list-style:none;counter-reset:u;margin:0;padding:4px 16px 16px;
+    display:grid;gap:7px;
+  }
+  .comp-list li{
+    counter-increment:u;position:relative;padding-left:32px;
+    font-size:.86rem;color:var(--muted);line-height:1.45;
+  }
+  .comp-list li::before{
+    content:counter(u);position:absolute;left:0;top:1px;
+    width:22px;height:22px;border-radius:6px;
+    background:rgba(192,38,155,.1);color:var(--accent);
+    font-weight:700;font-size:.7rem;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .comp-list .code{font-size:.75rem;color:#a87a9c;margin-left:4px}
+
+  /* Contact / footer */
+  .contact{text-align:center}
+  .contact .btns{justify-content:center}
+  footer{
+    padding:32px 0;color:var(--muted);font-size:.85rem;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  }
+
+  /* Reveal on scroll */
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.visible{opacity:1;transform:none}
+  
+  /* ===== MOVING PINK & WHITE GRADIENT BACKGROUND ===== */
+  .bg-animation {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: linear-gradient(-45deg, #ffffff, #fdf4fb, #fae5f7, #f8c8eb);
+    background-size: 400% 400%;
+    animation: gradientMove 15s ease infinite;
+  }
+
+  @keyframes gradientMove {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Keep content above the animation */
+  header, main, footer{ position: relative; z-index: 1; }
+
+  @media(prefers-reduced-motion:reduce){
+    .reveal{opacity:1;transform:none;transition:none}
+    html{scroll-behavior:auto}
+    .bg-animation{animation:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- FIXED: Correctly wrapped inside one div -->
+<div class="bg-animation" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="logo">Indah Siti Khotimah</a>
+    <button class="menu-btn" aria-expanded="false" aria-label="Toggle menu">☰</button>
+    <ul>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Electrical Engineering Graduate · Embedded System Enthusiast</p>
+
+      <span class="cert-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        Certified Power Installation Technician — 180 hours
+      </span>
+
+      <h1>Hi, I'm Indah Siti Khotimah.<br>I install, wire, and test power systems — and build the boards that control them.</h1>
+      <p>
+        Electrical Engineering graduate from Universitas Muhammadiyah Surakarta with hands-on training in
+        power installation (panel assembly, lighting circuits, three-phase and single-phase motors) and
+        end-to-end custom PCB development, from schematic through soldering and board testing.
+        Two years as a laboratory assistant in Fundamental Electronics, Electrical Physics,
+        Sensors &amp; Actuators, and Embedded Systems.
+      </p>
+      <div class="btns">
+        <a class="btn btn-primary" href="#projects">View projects</a>
+        <a class="btn btn-ghost" href="CV.pdf" download>Download CV</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <h2 class="reveal">Selected Projects</h2>
+      <p class="lead reveal">
+        From final-year thesis work to laboratory trainers and field-tested IoT systems.
+      </p>
+      <div class="grid">
+
+        <article class="card reveal">
+          <p class="kicker">Final-Year Thesis · 2026</p>
+          <h3>Autonomous Surface Vehicle with Waypoint Navigation &amp; Real-Time Monitoring</h3>
+          <p>
+            ESP32-S3-based autonomous surface vehicle with waypoint navigation, real-time telemetry
+            over MQTT, and a Node-RED monitoring dashboard. Integrated firmware, sensor data
+            acquisition, and wireless communication into a single working prototype.
+          </p>
+          <div class="tags">
+            <span class="tag">ESP32-S3</span><span class="tag">MQTT</span>
+            <span class="tag">Node-RED</span><span class="tag">Embedded</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <p class="kicker">Team Project · Feb 2025</p>
+          <h3>Three-Phase Star-Delta Load Trainer</h3>
+          <p>
+            Designed and built four three-phase training modules for practical learning of R-S-T phase
+            connections and star-delta (Y-Δ) configurations — covering wiring, circuit design, testing,
+            and laboratory equipment development.
+          </p>
+          <div class="tags">
+            <span class="tag">3-Phase</span><span class="tag">Panel Wiring</span>
+            <span class="tag">Motor Control</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <p class="kicker">Proyek Karya Teknologi · Team Project</p>
+          <h3>Smart Hydroponic Monitoring System</h3>
+          <p>
+            Monitored water pH, TDS, and temperature with an OLED display and a remote Blynk dashboard.
+            Handled the full custom PCB workflow — schematic capture, layout, soldering, and functional
+            testing — then field-tested at Griya Hidroponik Mubarok with a small-scale PVC prototype.
+          </p>
+          <div class="tags">
+            <span class="tag">Custom PCB</span><span class="tag">EasyEDA</span>
+            <span class="tag">Blynk</span><span class="tag">Sensors</span>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <p class="kicker">Embedded Computer Vision</p>
+          <h3>Raspberry Pi Object Detection System</h3>
+          <p>
+            Real-time object detection using YOLOv5, Python, a webcam, and a Raspberry Pi — integrating
+            a machine learning model directly with embedded hardware.
+          </p>
+          <div class="tags">
+            <span class="tag">Raspberry Pi</span><span class="tag">YOLOv5</span>
+            <span class="tag">Python</span><span class="tag">Computer Vision</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="wrap">
+      <h2 class="reveal">Skills</h2>
+      <p class="lead reveal">Tools and techniques I've used on real installations, trainers, and boards.</p>
+      <div class="skills reveal">
+        <div>
+          <h3>Power Installation</h3>
+          <ul>
+            <li>Panel assembly</li>
+            <li>Lighting (penerangan) circuits</li>
+            <li>Wiring &amp; single-line diagrams</li>
+            <li>Cable sizing &amp; protective device selection</li>
+            <li>Earthing to PUIL standards</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Components &amp; Motors</h3>
+          <ul>
+            <li>MCB, TOR, contactors, relays, push buttons</li>
+            <li>Single-phase &amp; three-phase installation</li>
+            <li>Star-delta (Y-Δ) starting</li>
+            <li>DOL starter, forward-reverse control</li>
+            <li>Motor protection</li>
+          </ul>
+        </div>
+        <div>
+          <h3>PCB &amp; Hardware</h3>
+          <ul>
+            <li>Schematic capture &amp; PCB layout</li>
+            <li>Component placement</li>
+            <li>THT soldering &amp; board assembly</li>
+            <li>Board testing &amp; troubleshooting</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Embedded &amp; IoT</h3>
+          <ul>
+            <li>ESP32-S3, Arduino, Raspberry Pi</li>
+            <li>MQTT, Node-RED, Blynk</li>
+            <li>Sensor integration (pH, TDS, DS18B20)</li>
+            <li>YOLOv5 on embedded hardware</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Software &amp; Programming</h3>
+          <ul>
+            <li>C, C++, Python, Assembly</li>
+            <li>EasyEDA, Proteus</li>
+            <li>MATLAB</li>
+            <li>VS Code</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <h2 class="reveal">Experience</h2>
+      <p class="lead reveal">Two years teaching and supervising undergraduate laboratories.</p>
+
+      <div class="entry reveal">
+        <div class="entry-head">
+          <div>
+            <h3>Laboratory Assistant — Electrical Engineering Department</h3>
+            <p class="meta">Universitas Muhammadiyah Surakarta · Surakarta, Indonesia</p>
+          </div>
+          <span class="when">Even Semester 2025/2026</span>
+        </div>
+        <ul>
+          <li>Assisted in teaching and guiding students in the Electrical Physics, Sensors &amp; Actuators, and Embedded Systems laboratories.</li>
+          <li>Supported laboratory sessions, explained concepts and procedures, and assisted with experiments and troubleshooting.</li>
+          <li>Helped students develop practical engineering skills through hands-on instruction and supervision.</li>
+        </ul>
+      </div>
+
+      <div class="entry reveal">
+        <div class="entry-head">
+          <div>
+            <h3>Laboratory Assistant — Electrical Engineering Department</h3>
+            <p class="meta">Universitas Muhammadiyah Surakarta · Surakarta, Indonesia</p>
+          </div>
+          <span class="when">Academic Year 2024/2025</span>
+        </div>
+        <ul>
+          <li>Guided students through the Fundamental Electronics and Electrical Physics laboratory sessions.</li>
+          <li>Explained fundamental concepts and experimental procedures, and assisted with experiments and troubleshooting.</li>
+          <li>Supported students in developing practical skills in electronics and electrical engineering.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <h2 class="reveal">Education &amp; Certification</h2>
+      <p class="lead reveal">Formal degree plus vocational certification to Indonesian PUIL standards.</p>
+
+      <div class="entry reveal">
+        <div class="entry-head">
+          <div>
+            <h3>Bachelor of Electrical Engineering</h3>
+            <p class="meta">Universitas Muhammadiyah Surakarta · Surakarta, Indonesia</p>
+          </div>
+          <span class="when">2022 – 2026</span>
+        </div>
+        <ul>
+          <li>GPA: 3.41 / 4.00</li>
+          <li>Final-year thesis on an ESP32-S3 autonomous surface vehicle with waypoint navigation and real-time MQTT monitoring.</li>
+        </ul>
+      </div>
+
+      <!-- CERTIFICATION -->
+      <div class="entry reveal">
+        <span class="cert-status">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+          Completed · Lulus
+        </span>
+        <div class="entry-head">
+          <div>
+            <h3>Teknisi Instalasi Tenaga (Power Installation Technician)</h3>
+            <p class="meta">Satpel PVP Bantul — Vocational Training &amp; Productivity Center · Bantul, Yogyakarta</p>
+          </div>
+          <span class="when">30 Sep – 17 Oct 2026</span>
+        </div>
+
+        <p class="cert-meta">
+          <strong>180 training hours</strong> · Certificate No. <strong>26112559105CD8</strong> ·
+          All 10 competency units passed
+        </p>
+
+        <ul>
+          <li>Vocational training in power installation to PUIL (Persyaratan Umum Instalasi Listrik) standards.</li>
+          <li>Installing and wiring electrical panels, including MCB, TOR, contactors, and push-button control circuits.</li>
+          <li>Building single-phase and three-phase motor installation circuits, including star-delta (Y-Δ) and direct-on-line control, and motor protection.</li>
+          <li>Reading and applying wiring diagrams and single-line diagrams for lighting and power circuits in buildings.</li>
+          <li>Performing cable sizing, protective device selection, and earthing according to Indonesian safety requirements.</li>
+        </ul>
+
+        <details class="comp-toggle">
+          <summary>View 10 certified competency units</summary>
+          <ol class="comp-list">
+            <li>Melaksanakan Pemeriksaan dan Pengujian Rangkaian Instalasi Motor Listrik dan Kontrol Motor Listrik <span class="code">D.35.143.03.031.1</span></li>
+            <li>Melaksanakan Pengoperasian Rangkaian Instalasi Motor Listrik dan Kontrol Motor Listrik <span class="code">D.35.144.03.005.1</span></li>
+            <li>Melaksanakan Pemasangan Komponen dan Sirkit Alat Pengukur dan Pembatas untuk Instalasi Pemanfaatan Tenaga Listrik <span class="code">D.35.142.00.002.1</span></li>
+            <li>Melaksanakan Pembangunan dan Pemasangan Rangkaian Instalasi Motor Listrik dan Kontrol Motor Listrik <span class="code">D.35.142.03.032.1</span></li>
+            <li>Mengukur Listrik / Elektronik <span class="code">C.28LOG12.002.2</span></li>
+            <li>Melaksanakan Pengoperasian Komponen dan Sirkit Alat Pengukur dan Pembatas untuk Instalasi Pemanfaatan Tenaga Listrik <span class="code">D.35.144.00.002.1</span></li>
+            <li>Melaksanakan Pembangunan dan Pemasangan Rangkaian Penangkal / Penangkap Petir <span class="code">D.35.142.03.030.1</span></li>
+            <li>Menerapkan Prinsip-prinsip K3 di Tempat Kerja <span class="code">C.28LOG20.003.2</span></li>
+            <li>Produktivitas <span class="code">— Lulus</span></li>
+            <li>Soft Skill <span class="code">— Lulus</span></li>
+          </ol>
+        </details>
+
+        <div class="cert-actions">
+          <a class="cert-btn" href="sertifikat-teknisi-instalasi-tenaga.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg>
+            Certificate (PDF)
+          </a>
+          <a class="cert-btn" href="surat-keterangan-teknisi-instalasi-tenaga.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M8 13h8M8 17h5"/></svg>
+            Completion Letter (PDF)
+          </a>
+        </div>
+      </div>
+
+      <p class="note reveal">Languages: Indonesian (native) · English (basic)</p>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="wrap">
+      <h2 class="reveal">Get in touch</h2>
+      <p class="lead reveal" style="margin-left:auto;margin-right:auto">
+        Open to electrical engineering and embedded roles. Email or WhatsApp is the fastest way to reach me.
+      </p>
+      <div class="btns reveal">
+        <a class="btn btn-primary" href="mailto:indahsitikhotimah13@gmail.com">indahsitikhotimah13@gmail.com</a>
+        <a class="btn btn-ghost" href="https://wa.me/6285782445417" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn btn-ghost" href="https://linkedin.com/in/indah-siti-khotimah-167129309" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <span>© <span id="year"></span> Indah Siti Khotimah · Klaten, Jawa Tengah, Indonesia</span>
+  <span>Built with plain HTML, CSS &amp; JS.</span>
+</footer>
+
+<script>
+  const menuBtn = document.querySelector('.menu-btn');
+  const navList = document.querySelector('.nav ul');
+  menuBtn.addEventListener('click', () => {
+    const open = navList.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(open));
+  });
+  navList.addEventListener('click', (e) => {
+    if (e.target.tagName === 'A') {
+      navList.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded', 'false');
+    }
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+</script>
+</body>
+</html>
